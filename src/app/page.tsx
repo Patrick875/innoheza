@@ -104,7 +104,7 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex w-3/6 items-center justify-between">
               <motion.ul className="w-4/6 flex items-center justify-between" variants={staggerContainer} initial="hidden" animate="visible">
-                {["about", "mission", "product", "team", "donate", "contact"].map((item) => (
+                {["about", "mission", "team", "donate", "contact"].map((item) => (
                   <motion.li key={item} variants={fadeIn}>
                     <Link href={`#${item}`} className="hover:text-emerald-700 transition-colors">
                       {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
