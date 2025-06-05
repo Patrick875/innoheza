@@ -11,6 +11,7 @@ import { PulseCircle, HeartbeatLine, DNAHelix, HexagonPattern, MoleculeStructure
 import { useForm } from "react-hook-form";
 import { useRef, useState } from "react";
 import { sendEmail } from "@/actions";
+import DonateModal from "@/components/DonateModal";
 
 // Add smooth scrolling
 if (typeof window !== "undefined") {
@@ -78,6 +79,7 @@ const progressBarVariant = {
 };
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { register, reset } = useForm()
   const formRef = useRef<HTMLFormElement>(null)
@@ -115,7 +117,9 @@ export default function Home() {
               <motion.button
                 className="w-auto px-6 py-3 rounded-[8px] text-white bg-teal-800"
                 whileHover={{ scale: 1.05, backgroundColor: "#115e59" }}
-                whileTap={{ scale: 0.95 }}>
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setOpen(true)}
+              >
                 Donate
               </motion.button>
             </div>
@@ -153,7 +157,9 @@ export default function Home() {
                 className="w-full md:w-1/2 lg:w-1/4 p-3 rounded-[8px] text-white bg-teal-800 relative overflow-hidden"
                 whileHover={{ scale: 1.05, backgroundColor: "#115e59" }}
                 whileTap={{ scale: 0.95 }}
-                variants={fadeIn}>
+                variants={fadeIn}
+                onClick={() => setOpen(true)}
+              >
                 DONATE
               </motion.button>
             </motion.div>
@@ -246,31 +252,7 @@ approvals to ensure long-term impact.`,
             </motion.div>
           </div>
         </section>
-        {/* <section id="product" className="w-full relative min-h-[20vh] flex flex-col">
-          <HexagonPattern className="top-10 right-10 hidden md:block" />
-          <MedicalCross className="bottom-10 left-10 hidden md:block" />
-          <div className="flex-1 w-[90%] mx-auto my-auto">
-            <motion.div
-              className="flex flex-col justify-center "
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeIn}>
-              <div className="p-4">
-                <motion.h2 className="text-3xl md:text-4xl font-bold w-full py-6 text-center text-teal-600" variants={fadeIn}>
-                  Our First Innovation
-                </motion.h2>
-                <motion.p className="mt-4 leading-7 md:leading-10 text-base md:text-lg text-center" variants={fadeIn}>
-                  Our flagship product is a rapid-acting uterine suction tamponade device designed to manage
-                  life-threatening postpartum bleeding in under 3 minutes. Developed for use by healthcare
-                  workers in low-resource settings, it’s easy to use, affordable, and made with locally available
-                  materials.
-                </motion.p>
-              </div>
-            </motion.div>
 
-          </div>
-        </section> */}
         <section id="team" className="w-full relative min-h-[90vh] my-12">
           <HeartbeatLine className="right-0 top-20 hidden md:block" />
           <DNAHelix className="left-20 bottom-20 hidden md:block" />
@@ -389,9 +371,9 @@ approvals to ensure long-term impact.`,
                         { value: "180", label: "Days left" },
                         { value: "1080", label: "Donations" },
                       ].map((item, index) => (
-                        <motion.div
+                        <motion.button
                           key={index}
-                          className="border-[1.5px] border-emerald-700 rounded-[16px] text-center min-h-[15vh] flex flex-col justify-center p-4 bg-white"
+                          className="border-[1.5px] cursor-pointer border-emerald-700 rounded-[16px] text-center min-h-[15vh] flex flex-col justify-center p-4 bg-white"
                           variants={scaleIn}
                           whileHover={{
                             scale: 1.05,
@@ -399,15 +381,17 @@ approvals to ensure long-term impact.`,
                           }}>
                           <p className="text-xl md:text-2xl text-emerald-700 font-semibold">{item.value}</p>
                           <p className="mt-3 text-base md:text-lg text-emerald-700">{item.label}</p>
-                        </motion.div>
+                        </motion.button>
                       ))}
                     </motion.div>
                   </motion.div>
                   <motion.div className="mt-8 md:mt-12" variants={fadeIn}>
                     <motion.button
-                      className="w-full md:w-1/3 p-3 border-[2px] text-teal-800 rounded-[8px] border-teal-800 relative overflow-hidden"
+                      className="w-full cursor-pointer md:w-1/3 p-3 border-[2px] text-teal-800 rounded-[8px] border-teal-800 relative overflow-hidden"
                       whileHover={{ scale: 1.05, backgroundColor: "rgba(20, 184, 166, 0.1)" }}
-                      whileTap={{ scale: 0.95 }}>
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setOpen(true)}
+                    >
                       DONATE NOW
                     </motion.button>
                   </motion.div>
@@ -610,6 +594,7 @@ approvals to ensure long-term impact.`,
           </div>
         </div>
       </motion.footer>
+      {open && <DonateModal onClose={() => setOpen(false)} />}
     </div>
   );
 }
