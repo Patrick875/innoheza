@@ -115,7 +115,7 @@ export default function Home() {
                 ))}
               </motion.ul>
               <motion.button
-                className="w-auto px-6 py-3 rounded-[8px] text-white bg-teal-800"
+                className="w-auto px-6 cursor-pointer py-3 rounded-[8px] text-white bg-teal-800"
                 whileHover={{ scale: 1.05, backgroundColor: "#115e59" }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setOpen(true)}
@@ -154,10 +154,11 @@ export default function Home() {
                 and scalable solutions.
               </motion.p>
               <motion.button
-                className="w-full md:w-1/2 lg:w-1/4 p-3 rounded-[8px] text-white bg-teal-800 relative overflow-hidden"
+                className="w-full cursor-pointer md:w-1/2 lg:w-1/4 p-3 rounded-[8px] text-white bg-teal-800 relative overflow-hidden"
                 whileHover={{ scale: 1.05, backgroundColor: "#115e59" }}
                 whileTap={{ scale: 0.95 }}
                 variants={fadeIn}
+                type='button'
                 onClick={() => setOpen(true)}
               >
                 DONATE

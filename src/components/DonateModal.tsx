@@ -116,13 +116,13 @@ export default function DonateModal({ onClose }: Props) {
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 w-1/2 bg-gray-300 rounded"
+                            className="px-4 py-2 w-1/2 bg-gray-300 rounded cursor-pointer"
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="px-4 w-1/2 py-2 bg-emerald-800 text-white rounded"
+                            className="px-4 w-1/2 py-2 bg-emerald-800 text-white rounded cursor-pointer"
                         >
                             Donate
                         </button>
