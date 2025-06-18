@@ -1,20 +1,22 @@
 "use client"
 
+import { MailIcon } from "lucide-react"
+
 
 export default function ComingSoonPage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-sky-900 to-slate-900 flex items-center justify-center p-4">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-500"></div>
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-sky-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-sky-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-sky-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-500"></div>
             </div>
 
             <div className="relative z-10 max-w-4xl mx-auto text-center">
                 {/* Logo/Brand */}
                 <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-32 h-32 bg-white  rounded-full mb-4">
+                    <div className="inline-flex items-center justify-center w-24 h-24 bg-white  rounded-full mb-4">
                         <img src="/logo-ino.png" alt='logo' className="w-16 h-16 " />
                     </div>
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -24,11 +26,18 @@ export default function ComingSoonPage() {
                         </span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                        We&apos;re working hard to bring you an incredible experience. Get notified when we launch and be among the first
-                        to explore what we&apos;ve built.
+                        We&apos;re working hard to bring you an incredible experience.
                     </p>
                 </div>
-
+                <div className="flex items-center justify-center mb-8 space-x-2">
+                    <MailIcon className="h-6 w-6 text-white" />
+                    <a
+                        href="mailto:info@innoheza.com"
+                        className="text-white  hover:text-white "
+                    >
+                        info@innoheza.com
+                    </a>
+                </div>
                 {/* Social Links */}
                 <div className="text-center">
                     <p className="text-gray-400 text-sm mb-4">Follow us for updates</p>
